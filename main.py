@@ -6,6 +6,15 @@ from prediction_helper import predict
 # Define the page layout
 st.title('Health Insurance Cost Predictor')
 
+# 🔒 Hide GitHub icon, menu, and footer
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+""", unsafe_allow_html=True)
+
 categorical_options = {
     'Gender': ['Male', 'Female'],
     'Marital Status': ['Unmarried', 'Married'],
@@ -76,3 +85,14 @@ input_dict = {
 if st.button('Predict'):
     prediction = predict(input_dict)
     st.success(f'Predicted Health Insurance Cost: {prediction}')
+
+# Adding the signature
+st.markdown(
+    """
+    <hr>
+    <div style="text-align:center; font-size: 12px; color: gray;">
+        Created by <strong>Amanpreet Singh</strong>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
